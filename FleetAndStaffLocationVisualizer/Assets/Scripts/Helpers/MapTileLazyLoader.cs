@@ -21,7 +21,7 @@ namespace Assets.Scripts.Helpers
         
         private void Start()
         {
-            _mapController = this.GetComponent<MapController>();
+            _mapController = GetComponent<MapController>();
             _camera = Camera.main;
             _yPlane = new Plane(Vector3.up, Vector3.zero);
         }

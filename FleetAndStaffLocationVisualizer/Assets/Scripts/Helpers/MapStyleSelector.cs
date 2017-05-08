@@ -20,7 +20,7 @@ namespace Assets.Scripts.Helpers
         // TODO Implement the real-time style changing. Now there is the pre-compile style changing only.
         private void Awake()
         {
-            var mapController = this.GetComponent<MapController>();
+            var mapController = GetComponent<MapController>();
             switch (MapStyle)
             {
                 case MapStyleType.Stylized:

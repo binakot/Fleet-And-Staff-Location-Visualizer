@@ -7,7 +7,7 @@ namespace Mapbox.Unity.MeshGeneration.Data
     using Mapbox.Unity.Utilities;
     using Utils;
 
-    [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
+    [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter), typeof(MeshCollider))]
     public class UnityTile : MonoBehaviour, INotifyPropertyChanged
     {
         private MeshRenderer _meshRenderer;
@@ -30,6 +30,17 @@ namespace Mapbox.Unity.MeshGeneration.Data
                 if (_meshFilter == null)
                     _meshFilter = GetComponent<MeshFilter>();
                 return _meshFilter;
+            }
+        }
+
+        private MeshCollider _meshCollider;
+        public MeshCollider MeshCollider
+        {
+            get
+            {
+                if (_meshCollider == null)
+                    _meshCollider = GetComponent<MeshCollider>();
+                return _meshCollider;
             }
         }
 
@@ -129,5 +140,10 @@ namespace Mapbox.Unity.MeshGeneration.Data
             if (handler != null) handler(this, null);
         }
         #endregion
+
+        private void Start()
+        {            
+            //MeshCollider.sharedMesh = MeshFilter.mesh;
+        }
     }
 }
