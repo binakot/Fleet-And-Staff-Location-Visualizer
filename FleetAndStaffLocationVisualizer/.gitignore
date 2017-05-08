@@ -27,3 +27,18 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Mapbox Unity SDK
+
+## API access token
+/Assets/StreamingAssets/*
+!/Assets/StreamingAssets/README.md
+!/Assets/StreamingAssets/README.md.meta
+
+## Examples
+/Assets/Mapbox/Examples/*
+/Assets/Mapbox/Examples.meta
+/Assets/Mapbox/Prefabs/*
+/Assets/Mapbox/Prefabs.meta
+/Assets/Mapbox/Resources/*
+/Assets/Mapbox/Resources.meta
