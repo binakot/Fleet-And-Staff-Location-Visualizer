@@ -24,14 +24,24 @@ namespace Assets.Scripts.Helpers
             switch (MapStyle)
             {
                 case MapStyleType.Stylized:
+                {
                     mapController.MapVisualization = StylizedMapVisualization;
                     mapController.Awake();
+
+                    RenderSettings.fog = true;
+
                     break;
+                }
 
                 case MapStyleType.Realistic:
+                {
                     mapController.MapVisualization = RealisticMapVisualization;
                     mapController.Awake();
+
+                    RenderSettings.fog = false;
+
                     break;
+                }
 
                 default:
                     throw new ArgumentOutOfRangeException();

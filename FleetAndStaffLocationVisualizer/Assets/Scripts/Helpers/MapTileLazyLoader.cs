@@ -28,16 +28,16 @@ namespace Assets.Scripts.Helpers
 
         private void Update()
         {
-            _ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            _ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             if (_yPlane.Raycast(_ray, out _hitDistance))
             {
                 _cameraTarget = _ray.GetPoint(_hitDistance) / MapController.WorldScaleFactor;
                 _currentTile = Conversions.MetersToTile(new Vector2d(MapController.ReferenceTileRect.Center.x + _cameraTarget.x, MapController.ReferenceTileRect.Center.y + _cameraTarget.z), _mapController.Zoom);
                 if (_currentTile != _cachedTile)
                 {
-                    for (int i = -Range; i <= Range; i++)
+                    for (var i = -Range; i <= Range; i++)
                     {
-                        for (int j = -Range; j <= Range; j++)
+                        for (var j = -Range; j <= Range; j++)
                         {
                             _mapController.Request(new Vector2(_currentTile.x + i, _currentTile.y + j), _mapController.Zoom);
                         }
