@@ -1,5 +1,5 @@
-﻿using Mapbox.Unity.Utilities;
-using Mapbox.Utils;
+﻿using Mapbox.Unity.MeshGeneration;
+using Mapbox.Unity.Utilities;
 using UnityEngine;
 
 namespace Assets.Scripts.Utils
@@ -11,7 +11,7 @@ namespace Assets.Scripts.Utils
 
         private void Update()
         {
-            transform.MoveToGeocoordinate(Latitude, Longitude, Vector2d.zero);            
+            transform.MoveToGeocoordinate(Latitude, Longitude, MapController.ReferenceTileRect.Center, MapController.WorldScaleFactor);            
         }
     }
 }
