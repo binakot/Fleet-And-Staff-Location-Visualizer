@@ -4,22 +4,16 @@ namespace Assets.Scripts.Helpers
 {
     public sealed class HeightCorrector : MonoBehaviour
     {
+        private const float RaycastYOffset = 1000f;
+
         public Color DebugColor = Color.white;
-
-        private const float RaycastHeight = 1000f;        
-
-        private void Start()
-        {
-            if (!"Ignore Raycast".Equals(LayerMask.LayerToName(gameObject.layer)))
-                Debug.LogWarning("GameObject with HeightCorrector should be raycast transparent.");
-        }
+        public string[] RaycastLayers = { "Terrain" };
 
         private void Update()
         {
             RaycastHit hit;
-            var origin = transform.position;
-            origin.Set(origin.x, RaycastHeight, origin.z);
-            if (Physics.Raycast(origin, Vector3.down, out hit))
+            var origin = transform.position + new Vector3(0, RaycastYOffset, 0);
+            if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask(RaycastLayers)))
             {
                 var targetLocation = hit.point;                
                 transform.position = targetLocation;

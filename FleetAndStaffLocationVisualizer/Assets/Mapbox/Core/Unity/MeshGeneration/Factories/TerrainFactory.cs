@@ -214,9 +214,10 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 
             if (tile.MeshRenderer.material == null)
                 tile.MeshRenderer.material = _baseMaterial;
+
             //BRNKHY Optional stuff
-            //go.AddComponent<MeshCollider>();
-            //go.layer = LayerMask.NameToLayer("terrain");
+            go.AddComponent<MeshCollider>();
+            go.layer = LayerMask.NameToLayer("Terrain");
         }
 
         /// <summary>
