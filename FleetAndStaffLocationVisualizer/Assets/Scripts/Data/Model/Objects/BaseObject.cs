@@ -1,8 +1,8 @@
 ﻿using System;
 using Assets.Scripts.Data.Interfaces;
-using Mapbox.Unity.Utilities;
-using Mapbox.Utils;
 using UnityEngine;
+using Mapbox.Unity.MeshGeneration;
+using Mapbox.Unity.Utilities;
 
 namespace Assets.Scripts.Data.Model.Objects
 {
@@ -19,7 +19,7 @@ namespace Assets.Scripts.Data.Model.Objects
             Longitude = lng;
             Course = course;
 
-            transform.MoveToGeocoordinate(Latitude, Longitude, Vector2d.zero);
+            transform.MoveToGeocoordinate(Latitude, Longitude, MapController.ReferenceTileRect.Center, MapController.WorldScaleFactor);
             transform.Rotate(Vector3.up, Course);
         }
 

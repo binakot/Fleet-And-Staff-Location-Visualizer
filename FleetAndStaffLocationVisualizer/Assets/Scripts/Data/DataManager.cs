@@ -3,7 +3,9 @@ using Assets.Scripts.Data.Model.Objects;
 using Assets.Scripts.Data.Providers;
 using Assets.Scripts.Storages;
 using Assets.Scripts.Utils;
+using Mapbox.Unity.MeshGeneration;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +29,7 @@ namespace Assets.Scripts.Data
         private void Start()
         {
             InitDataProvider();
-            CreateObjects();            
+            StartCoroutine(CreateObjects());            
         }        
 
         private void InitDataProvider()
@@ -47,8 +49,11 @@ namespace Assets.Scripts.Data
             }
         }
 
-        private void CreateObjects()
-        { 
+        private IEnumerator CreateObjects()
+        {
+            while (MapController.ReferenceTileRect == null)
+                yield return new WaitForSeconds(1f); // HOTFIX Impossible to create objects before MapController didn't create the first map tile.
+
             var random = new System.Random();
 
             _moveableObjects = _dataProvider.LoadMoveableObjects();
