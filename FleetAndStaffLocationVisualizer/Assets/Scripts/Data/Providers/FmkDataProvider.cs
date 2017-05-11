@@ -1,8 +1,9 @@
 ﻿using Assets.Scripts.Data.Interfaces;
-using System;
 using System.Collections.Generic;
 using Assets.Scripts.Data.Model.Objects;
 using Assets.Scripts.Data.Model.Telemetrics;
+using Assets.Scripts.Data.Providers.Fmk;
+using UnityEngine;
 
 namespace Assets.Scripts.Data.Providers
 {
@@ -12,20 +13,27 @@ namespace Assets.Scripts.Data.Providers
     /// This data is confidential, therefore the data transfer protocol is not present in this repository.
     /// </summary>
     public sealed class FmkDataProvider : IDataProvider
-    {
+    { 
+        private FmkApiClient _client;
+
+        public FmkDataProvider()
+        {
+            _client = new FmkApiClient(credentials.Key, credentials.Login, credentials.Password);
+        }
+
         public List<Building> LoadBuildings()
         {
-            throw new NotImplementedException();
+            return new List<Building>(0); // Buildings are not supported.
         }
 
         public List<MoveableObject> LoadMoveableObjects()
-        {
-            throw new NotImplementedException();
+        {      
+            return _client.GetDevices();
         }
 
         public List<TrackPoint> UpdateMoveableObjectLocations()
         {
-            throw new NotImplementedException();
+            return _client.GetLocations();
         }
     }
 }
