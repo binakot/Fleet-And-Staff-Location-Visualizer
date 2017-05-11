@@ -6,13 +6,13 @@ namespace Assets.Scripts.Utils
     {
         private static T _instance;
 
-        private static object _lock = new object();
+        private static readonly object _lock = new object();
 
         public static T Instance
         {
             get
             {
-                if (applicationIsQuitting)
+                if (_applicationIsQuitting)
                 {
                     Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
                         "' already destroyed on application quit." +
@@ -36,9 +36,9 @@ namespace Assets.Scripts.Utils
 
                         if (_instance == null)
                         {
-                            GameObject singleton = new GameObject();
+                            var singleton = new GameObject();
                             _instance = singleton.AddComponent<T>();
-                            singleton.name = "(singleton) " + typeof(T).ToString();
+                            singleton.name = "(singleton) " + typeof(T);
 
                             DontDestroyOnLoad(singleton);
 
@@ -58,7 +58,6 @@ namespace Assets.Scripts.Utils
             }
         }
 
-        private static bool applicationIsQuitting = false;
         /// <summary>
         /// When Unity quits, it destroys objects in a random order.
         /// In principle, a Singleton is only destroyed when application quits.
@@ -67,9 +66,12 @@ namespace Assets.Scripts.Utils
         ///   even after stopping playing the Application. Really bad!
         /// So, this was made to be sure we're not creating that buggy ghost object.
         /// </summary>
+
+        private static bool _applicationIsQuitting = false;
+        
         public void OnDestroy()
         {
-            applicationIsQuitting = true;
+            _applicationIsQuitting = true;
         }
     }
 }

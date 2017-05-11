@@ -9,8 +9,9 @@
         {
             return string.Format("Vehicle: {0} with reg number {1}\r\n" +
                                  "Address: {2}\r\n" +
-                                 "LatLng: {3:0.######}; {4:0.######}",
-                BrandModel, RegNumber, GetNearestAddress(), Latitude, Longitude);
+                                 "LatLng: {3:0.######}; {4:0.######}\r\n" +
+                                 "Course: {5:0.##}, Speed: {6:0.##}",
+                BrandModel, RegNumber, GetNearestAddress(), Latitude, Longitude, Course, Speed);
         }
     }
 }

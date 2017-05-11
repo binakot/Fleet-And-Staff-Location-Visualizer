@@ -14,7 +14,7 @@ namespace Assets.Scripts.Data
     public sealed class DataManager : Singleton<DataManager>
     {
         [Header("Common")]
-        public double DataUpdateFrequency = TimeSpan.FromMinutes(1).TotalSeconds;
+        public float DataUpdateFrequency = (float)TimeSpan.FromMinutes(1).TotalSeconds;
         public enum DataProviderType { Test, Fmk }
         public DataProviderType DataProvider = DataProviderType.Test;
 
@@ -69,9 +69,36 @@ namespace Assets.Scripts.Data
                 else
                     throw new InvalidCastException();
                 model.transform.SetParent(moveObject.transform);
-               
+                
+                moveObject.TargetWayPoint = Instantiate(ModelStorage.TargetWayPoint, transform);
+                
                 moveObject.PlaceTo(moveObject.Latitude, moveObject.Longitude, moveObject.Course);
             }
-        }        
+
+            StartCoroutine(UpdateObjects());
+        }
+
+        private IEnumerator UpdateObjects()
+        {
+            while (true)
+            {
+                var locations = _dataProvider.UpdateMoveableObjectLocations();
+                foreach (var curObject in _moveableObjects)
+                {
+                    foreach (var curPoint in locations)
+                    {
+                        if (curObject.Id == curPoint.Id)
+                        {
+                            curObject.MoveTo(curPoint.Latitude, curPoint.Longitude, curPoint.Speed, curPoint.Course);
+                            goto NEXT_OBJECT;
+                        }
+                    }
+
+                    NEXT_OBJECT: ;
+                }
+                
+                yield return new WaitForSeconds(DataUpdateFrequency);
+            }
+        }
     }
 }

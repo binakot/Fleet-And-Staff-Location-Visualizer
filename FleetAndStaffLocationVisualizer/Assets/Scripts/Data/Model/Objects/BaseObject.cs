@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Scripts.Data.Interfaces;
+﻿using Assets.Scripts.Data.Interfaces;
 using UnityEngine;
 using Mapbox.Unity.MeshGeneration;
 using Mapbox.Unity.Utilities;
@@ -25,7 +24,7 @@ namespace Assets.Scripts.Data.Model.Objects
 
         public string GetNearestAddress()
         {
-            throw new NotImplementedException(); // TODO Use geo-coding to get a nearest address by current location.
+            return "TODO"; // TODO Use geo-coding to get a nearest address by current location.
         }
     }
 }

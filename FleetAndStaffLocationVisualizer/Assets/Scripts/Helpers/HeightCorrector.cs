@@ -6,8 +6,8 @@ namespace Assets.Scripts.Helpers
     {
         private const float RaycastYOffset = 1000f;
 
-        public Color DebugColor = Color.white;
         public string[] RaycastLayers = { "Terrain" };
+        public Color DebugColor = Color.white;
 
         private void Update()
         {

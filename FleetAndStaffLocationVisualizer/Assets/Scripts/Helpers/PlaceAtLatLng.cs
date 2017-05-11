@@ -2,7 +2,7 @@
 using Mapbox.Unity.Utilities;
 using UnityEngine;
 
-namespace Assets.Scripts.Utils
+namespace Assets.Scripts.Helpers
 {
     public sealed class PlaceAtLatLng : MonoBehaviour
     {

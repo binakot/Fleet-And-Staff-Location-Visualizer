@@ -12,6 +12,7 @@ namespace Assets.Scripts.Helpers
     ///     
     /// TODO Implement Q and E for the height changing (similar to Unity scene's camera).
     /// </summary>
+    [RequireComponent(typeof(Camera))]
     public sealed class FreeFlightCamera : MonoBehaviour
     {
         [Header("Rotation")]
@@ -42,6 +43,7 @@ namespace Assets.Scripts.Helpers
                 _rotate = new Vector3(-_rotate.y * Sensitivity, _rotate.x * Sensitivity, 0);
                 _rotate = new Vector3(MathUtils.ClampAngle(transform.eulerAngles.x + _rotate.x, MinVerticalAngle, MaxVerticalAngle), transform.eulerAngles.y + _rotate.y, 0);
                 transform.eulerAngles = _rotate;
+
                 _rotate = Input.mousePosition;
             }
 

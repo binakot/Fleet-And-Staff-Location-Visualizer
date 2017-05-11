@@ -8,5 +8,6 @@ namespace Assets.Scripts.Storages
     {
         public List<GameObject> VehicleModels;
         public List<GameObject> EmployeeModels;
+        public GameObject TargetWayPoint;
     }
 }
