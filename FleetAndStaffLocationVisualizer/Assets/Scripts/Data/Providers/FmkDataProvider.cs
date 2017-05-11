@@ -18,6 +18,7 @@ namespace Assets.Scripts.Data.Providers
 
         public FmkDataProvider()
         {
+            var credentials = Resources.Load<FmkCredentials>("Storages/FMK");
             _client = new FmkApiClient(credentials.Key, credentials.Login, credentials.Password);
         }
 
