@@ -2,6 +2,7 @@
 using Assets.Scripts.Data.Model.Objects;
 using Assets.Scripts.Data.Providers;
 using Assets.Scripts.Storages;
+using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
 using Mapbox.Unity.MeshGeneration;
 using System;
@@ -73,6 +74,8 @@ namespace Assets.Scripts.Data
                 moveObject.TargetWayPoint = Instantiate(ModelStorage.TargetWayPoint, transform);
                 
                 moveObject.PlaceTo(moveObject.Latitude, moveObject.Longitude, moveObject.Course);
+
+                UiManager.Instance.AddObjectLabel(moveObject.gameObject, moveObject.ToString());
             }
 
             StartCoroutine(UpdateObjects());

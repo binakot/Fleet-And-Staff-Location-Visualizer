@@ -7,8 +7,8 @@
 
         public override string ToString()
         {
-            return string.Format("Building: {0} at {1}\r\n" +
-                                 "LatLng: {2:0.######}; {3:0.######}",
+            return string.Format("{0} at {1}\r\n" +
+                                 "Location: {2:0.######}; {3:0.######}",
                 Name, Address, Latitude, Longitude);
         }
     }
