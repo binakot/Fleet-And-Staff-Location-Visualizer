@@ -77,12 +77,15 @@ namespace Assets.Scripts.Data
 
                 UiManager.Instance.AddObjectLabel(moveObject.gameObject, moveObject.ToString());
             }
+            Debug.Log("Objects loaded.");
 
             StartCoroutine(UpdateObjects());
         }
 
         private IEnumerator UpdateObjects()
         {
+            yield return new WaitForSeconds(DataUpdateFrequency); // Pause before first update.
+
             while (true)
             {
                 var locations = _dataProvider.UpdateMoveableObjectLocations();
@@ -99,7 +102,8 @@ namespace Assets.Scripts.Data
 
                     NEXT_OBJECT: ;
                 }
-                
+                Debug.Log("Locations updated.");
+
                 yield return new WaitForSeconds(DataUpdateFrequency);
             }
         }

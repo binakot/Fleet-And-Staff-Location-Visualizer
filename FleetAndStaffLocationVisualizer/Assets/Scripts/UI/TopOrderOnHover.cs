@@ -20,13 +20,13 @@ namespace Assets.Scripts.UI
         public void OnPointerEnter(PointerEventData eventData)
         {
             rect.SetSiblingIndex(rect.GetSiblingIndex() + TopOrderOffset);
-            backgroud.color += new Color(0, 0, 0, 0.5f);
+            //backgroud.color += new Color(0, 0, 0, 0.5f);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             rect.SetSiblingIndex(rect.GetSiblingIndex() - TopOrderOffset);
-            backgroud.color -= new Color(0, 0, 0, 0.5f);
+            //backgroud.color -= new Color(0, 0, 0, 0.5f);
         }
     }
 }
