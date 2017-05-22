@@ -12,7 +12,7 @@ namespace Assets.Scripts.Data.Model.Objects
         public double Longitude;
         public float Course;
 
-        public virtual void PlaceTo(double lat, double lng, float course)
+        public void PlaceTo(double lat, double lng, float course)
         {
             Latitude = lat;
             Longitude = lng;

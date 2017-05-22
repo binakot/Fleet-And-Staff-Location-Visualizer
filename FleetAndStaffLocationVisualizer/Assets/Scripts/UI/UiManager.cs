@@ -28,6 +28,9 @@ namespace Assets.Scripts.UI
 
             var listItemGo = Instantiate(ObjectsListItem, ObjectsListRoot.transform);
             listItemGo.GetComponentInChildren<Text>().text = text.Split(new string[] { "\r\n" }, StringSplitOptions.None)[0]; // Take only the first row.
+
+            var cameraLookAtMe = listItemGo.AddComponent<CameraLookAtMe>();
+            cameraLookAtMe.target = go;
         }
     }
 }
