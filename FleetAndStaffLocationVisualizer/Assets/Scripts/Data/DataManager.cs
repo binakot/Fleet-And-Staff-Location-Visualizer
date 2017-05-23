@@ -75,7 +75,7 @@ namespace Assets.Scripts.Data
                 
                 moveObject.PlaceTo(moveObject.Latitude, moveObject.Longitude, moveObject.Course);
 
-                UiManager.Instance.AddObjectLabel(moveObject.gameObject, moveObject.ToString());
+                UiManager.Instance.AddObjectLabel(moveObject.gameObject);
             }
             Debug.Log("Objects loaded.");
 

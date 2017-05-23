@@ -2,7 +2,6 @@
 {
     public interface IPlaceable
     {
-        void PlaceTo(double lat, double lng, float course);
-        string GetNearestAddress();
+        void PlaceTo(double lat, double lng, float course);        
     }
 }

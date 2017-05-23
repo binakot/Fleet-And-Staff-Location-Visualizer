@@ -40,6 +40,8 @@ namespace Assets.Scripts.Data.Model.Objects
             }
 
             //transform.Rotate(Vector3.up, course); // Rotation based on the course value from data provider.
+
+            UpdateNearestAddress();
         }
     }
 }
