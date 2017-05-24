@@ -1,10 +1,10 @@
 ﻿using Assets.Scripts.Data.Interfaces;
-using UnityEngine;
+using Mapbox.Geocoding;
+using Mapbox.Unity;
 using Mapbox.Unity.MeshGeneration;
 using Mapbox.Unity.Utilities;
-using Mapbox.Unity;
-using Mapbox.Geocoding;
 using Mapbox.Utils;
+using UnityEngine;
 
 namespace Assets.Scripts.Data.Model.Objects
 {
@@ -17,13 +17,13 @@ namespace Assets.Scripts.Data.Model.Objects
         public string Address;
 
         private Vector2d _coordinate;
-        private ReverseGeocodeResource _resource;        
+        private ReverseGeocodeResource _resource;
 
         private void Awake()
         {
             _coordinate = new Vector2d();
             _resource = new ReverseGeocodeResource(_coordinate);
-        }        
+        }
 
         public void PlaceTo(double lat, double lng, float course)
         {

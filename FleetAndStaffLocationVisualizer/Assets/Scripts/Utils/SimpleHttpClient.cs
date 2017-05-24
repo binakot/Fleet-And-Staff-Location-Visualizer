@@ -13,7 +13,7 @@ namespace Assets.Scripts.Utils
             if (request == null)
                 throw new ArgumentNullException("Request string cannot be null in HTTP GET request.");
             if (timeout < 0)
-                throw new ArgumentOutOfRangeException("Integer timeout cannot be less than zero in HTTP GET request.");            
+                throw new ArgumentOutOfRangeException("Integer timeout cannot be less than zero in HTTP GET request.");
 
             /* Do HTTP GET request. */
             WebResponse resp = null;
@@ -33,7 +33,7 @@ namespace Assets.Scripts.Utils
                 var text = sr.ReadToEnd();
 
                 return text;
-            }            
+            }
             finally
             {
                 if (sr != null)
@@ -51,7 +51,7 @@ namespace Assets.Scripts.Utils
             if (request == null)
                 throw new ArgumentNullException("Data string cannot be null in HTTP POST request.");
             if (timeout < 0)
-                throw new ArgumentOutOfRangeException("Integer timeout cannot be less than zero in HTTP POST request.");          
+                throw new ArgumentOutOfRangeException("Integer timeout cannot be less than zero in HTTP POST request.");
 
             /* Do HTTP POST request. */
             WebResponse resp = null;
@@ -86,7 +86,7 @@ namespace Assets.Scripts.Utils
                 }
 
                 return text;
-            }            
+            }
             finally
             {
                 if (sr != null)

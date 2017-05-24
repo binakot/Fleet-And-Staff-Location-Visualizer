@@ -2,6 +2,6 @@
 {
     public interface IPlaceable
     {
-        void PlaceTo(double lat, double lng, float course);        
+        void PlaceTo(double lat, double lng, float course);
     }
 }

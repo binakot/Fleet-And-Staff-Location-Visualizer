@@ -15,10 +15,10 @@ namespace Assets.Scripts.Helpers
             var origin = transform.position + new Vector3(0, RaycastYOffset, 0);
             if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask(RaycastLayers)))
             {
-                var targetLocation = hit.point;                
+                var targetLocation = hit.point;
                 transform.position = targetLocation;
 
-                Debug.DrawLine(origin, hit.point, DebugColor);               
+                Debug.DrawLine(origin, hit.point, DebugColor);
             }
         }
     }

@@ -19,5 +19,5 @@ namespace Assets.Scripts.UI
             Camera.main.transform.position = new Vector3(target.transform.position.x - 100f, Camera.main.transform.position.y, target.transform.position.z - 100f);
             Camera.main.transform.LookAt(target.transform);
         }
-    }    
+    }
 }

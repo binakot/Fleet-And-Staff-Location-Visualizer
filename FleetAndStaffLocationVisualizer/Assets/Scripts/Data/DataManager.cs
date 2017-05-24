@@ -25,13 +25,15 @@ namespace Assets.Scripts.Data
         private IDataProvider _dataProvider;
         private List<MoveableObject> _moveableObjects;
 
-        private DataManager() { }
+        private DataManager()
+        {
+        }
 
         private void Start()
         {
             InitDataProvider();
-            StartCoroutine(CreateObjects());            
-        }        
+            StartCoroutine(CreateObjects());
+        }
 
         private void InitDataProvider()
         {
@@ -64,15 +66,15 @@ namespace Assets.Scripts.Data
 
                 GameObject model;
                 if (moveObject is Vehicle)
-                    model = Instantiate(ModelStorage.VehicleModels[random.Next(0, ModelStorage.VehicleModels.Count)]); 
+                    model = Instantiate(ModelStorage.VehicleModels[random.Next(0, ModelStorage.VehicleModels.Count)]);
                 else if (moveObject is Employee)
-                    model = Instantiate(ModelStorage.EmployeeModels[random.Next(0, ModelStorage.EmployeeModels.Count)]); 
+                    model = Instantiate(ModelStorage.EmployeeModels[random.Next(0, ModelStorage.EmployeeModels.Count)]);
                 else
                     throw new InvalidCastException();
                 model.transform.SetParent(moveObject.transform);
-                
+
                 moveObject.TargetWayPoint = Instantiate(ModelStorage.TargetWayPoint, transform);
-                
+
                 moveObject.PlaceTo(moveObject.Latitude, moveObject.Longitude, moveObject.Course);
 
                 UiManager.Instance.AddObjectLabel(moveObject.gameObject);
@@ -100,7 +102,7 @@ namespace Assets.Scripts.Data
                         }
                     }
 
-                    NEXT_OBJECT: ;
+                NEXT_OBJECT:;
                 }
                 Debug.Log("Locations updated.");
 

@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Data.Interfaces;
-using System.Collections.Generic;
 using Assets.Scripts.Data.Model.Objects;
 using Assets.Scripts.Data.Model.Telemetrics;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Data.Providers

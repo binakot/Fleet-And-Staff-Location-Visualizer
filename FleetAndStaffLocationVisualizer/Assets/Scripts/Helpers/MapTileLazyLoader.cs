@@ -7,7 +7,7 @@ namespace Assets.Scripts.Helpers
 {
     [RequireComponent(typeof(MapController))]
     public sealed class MapTileLazyLoader : MonoBehaviour
-    {        
+    {
         public int Range = 3;
 
         private MapController _mapController;
@@ -17,8 +17,8 @@ namespace Assets.Scripts.Helpers
         private Vector2 _cachedTile;
         private Ray _ray;
         private float _hitDistance;
-        private Plane _yPlane;        
-        
+        private Plane _yPlane;
+
         private void Start()
         {
             _mapController = GetComponent<MapController>();

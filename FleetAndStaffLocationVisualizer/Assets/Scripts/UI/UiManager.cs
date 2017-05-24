@@ -19,7 +19,7 @@ namespace Assets.Scripts.UI
 
         public void AddObjectLabel(GameObject go)
         {
-            var labelGo = Instantiate(ObjectLabel, ObjectLabelsRoot.transform);   
+            var labelGo = Instantiate(ObjectLabel, ObjectLabelsRoot.transform);
             var follower = labelGo.GetComponentInChildren<FollowToGameObject>();
             follower.followedGameObject = go;
 

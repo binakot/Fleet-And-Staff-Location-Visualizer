@@ -11,7 +11,7 @@ namespace Assets.Scripts.Helpers
 
         private void Update()
         {
-            transform.MoveToGeocoordinate(Latitude, Longitude, MapController.ReferenceTileRect.Center, MapController.WorldScaleFactor);            
+            transform.MoveToGeocoordinate(Latitude, Longitude, MapController.ReferenceTileRect.Center, MapController.WorldScaleFactor);
         }
     }
 }

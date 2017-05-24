@@ -9,14 +9,14 @@ namespace Assets.Scripts.Utils
             if (min < 0 && max > 0 && (angle > max || angle < min))
             {
                 angle -= 360;
-                if (angle > max || angle < min)                
-                    return Mathf.Abs(Mathf.DeltaAngle(angle, min)) < Mathf.Abs(Mathf.DeltaAngle(angle, max)) ? min : max;                
+                if (angle > max || angle < min)
+                    return Mathf.Abs(Mathf.DeltaAngle(angle, min)) < Mathf.Abs(Mathf.DeltaAngle(angle, max)) ? min : max;
             }
             else if (min > 0 && (angle > max || angle < min))
             {
                 angle += 360;
-                if (angle > max || angle < min)                
-                    return Mathf.Abs(Mathf.DeltaAngle(angle, min)) < Mathf.Abs(Mathf.DeltaAngle(angle, max)) ? min : max;                
+                if (angle > max || angle < min)
+                    return Mathf.Abs(Mathf.DeltaAngle(angle, min)) < Mathf.Abs(Mathf.DeltaAngle(angle, max)) ? min : max;
             }
 
             if (angle < min)

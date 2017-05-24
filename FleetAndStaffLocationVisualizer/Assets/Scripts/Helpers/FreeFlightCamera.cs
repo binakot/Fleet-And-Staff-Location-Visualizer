@@ -9,7 +9,7 @@ namespace Assets.Scripts.Helpers
     ///     WASD - movement
     ///     RMB dragging - rotation
     ///     Space - hold the height when moving & rotating.
-    ///     
+    ///
     /// TODO Implement Q and E for the height changing (similar to Unity scene's camera).
     /// </summary>
     [RequireComponent(typeof(Camera))]
@@ -28,7 +28,7 @@ namespace Assets.Scripts.Helpers
         public float MaxSpeed = 1000f;
         public float Acceleration = 250f;
         public bool MovementStaysFlat = true;
-        
+
         private Vector3 _rotate = Vector3.zero;
         private float _accelerationTime = 1f;
 

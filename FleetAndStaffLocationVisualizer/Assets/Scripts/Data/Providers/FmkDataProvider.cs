@@ -1,21 +1,21 @@
 ﻿using Assets.Scripts.Data.Interfaces;
-using System.Collections.Generic;
 using Assets.Scripts.Data.Model.Objects;
 using Assets.Scripts.Data.Model.Telemetrics;
 using Assets.Scripts.Data.Providers.Fmk;
-using UnityEngine;
-using System;
 using Assets.Scripts.Data.Providers.Fmk.Model;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Data.Providers
 {
     /// <summary>
     /// The author is working in First Monitoring Company. http://firstmk.ru
-    /// Current provider let to load navigation data from company's servers. 
+    /// Current provider let to load navigation data from company's servers.
     /// This data is confidential, therefore the data transfer protocol is not present in this repository.
     /// </summary>
     public sealed class FmkDataProvider : IDataProvider
-    { 
+    {
         private FmkApiClient _client;
 
         public FmkDataProvider()
@@ -45,13 +45,13 @@ namespace Assets.Scripts.Data.Providers
                     if (device.IsEmployee)
                     {
                         moveableObjects.Add(
-                            BuildEmployee(device.Id, device.Latitude, device.Longitude, device.Speed, device.Bearing, 
+                            BuildEmployee(device.Id, device.Latitude, device.Longitude, device.Speed, device.Bearing,
                                           device.Driver, device.RegSign, device.Model));
                     }
                     else
                     {
                         moveableObjects.Add(
-                            BuildVehicle(device.Id, device.Latitude, device.Longitude, device.Speed, device.Bearing, 
+                            BuildVehicle(device.Id, device.Latitude, device.Longitude, device.Speed, device.Bearing,
                                          device.Model, device.RegSign));
                     }
                 }

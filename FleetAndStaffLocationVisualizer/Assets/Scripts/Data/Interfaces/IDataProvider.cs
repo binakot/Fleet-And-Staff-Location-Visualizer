@@ -7,7 +7,9 @@ namespace Assets.Scripts.Data.Interfaces
     public interface IDataProvider
     {
         List<Building> LoadBuildings();
+
         List<MoveableObject> LoadMoveableObjects();
+
         List<TrackPoint> UpdateMoveableObjectLocations();
     }
 }

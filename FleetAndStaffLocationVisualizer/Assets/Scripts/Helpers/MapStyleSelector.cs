@@ -1,5 +1,5 @@
-﻿using System;
-using Mapbox.Unity.MeshGeneration;
+﻿using Mapbox.Unity.MeshGeneration;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Helpers
@@ -8,6 +8,7 @@ namespace Assets.Scripts.Helpers
     public sealed class MapStyleSelector : MonoBehaviour
     {
         public MapStyleType MapStyle = MapStyleType.Stylized;
+
         public enum MapStyleType
         {
             Stylized,
@@ -24,24 +25,24 @@ namespace Assets.Scripts.Helpers
             switch (MapStyle)
             {
                 case MapStyleType.Stylized:
-                {
-                    mapController.MapVisualization = StylizedMapVisualization;
-                    mapController.Awake();
+                    {
+                        mapController.MapVisualization = StylizedMapVisualization;
+                        mapController.Awake();
 
-                    RenderSettings.fog = true;
+                        RenderSettings.fog = true;
 
-                    break;
-                }
+                        break;
+                    }
 
                 case MapStyleType.Realistic:
-                {
-                    mapController.MapVisualization = RealisticMapVisualization;
-                    mapController.Awake();
+                    {
+                        mapController.MapVisualization = RealisticMapVisualization;
+                        mapController.Awake();
 
-                    RenderSettings.fog = false;
+                        RenderSettings.fog = false;
 
-                    break;
-                }
+                        break;
+                    }
 
                 default:
                     throw new ArgumentOutOfRangeException();
