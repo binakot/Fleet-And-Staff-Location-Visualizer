@@ -14,7 +14,9 @@ _Coming soon._
 
 ## Examples :eyes:
 
-_Coming soon._
+![](docs/realistic.gif)
+
+![](docs/stylized.gif)
 
 ## Built With :wrench:
 
