@@ -16,7 +16,7 @@ namespace Assets.Scripts.Data
     {
         [Header("Common")]
         public float DataUpdateFrequency = (float)TimeSpan.FromMinutes(1).TotalSeconds;
-        public enum DataProviderType { Test, Fmk }
+        public enum DataProviderType { Test }
         public DataProviderType DataProvider = DataProviderType.Test;
 
         [Header("Storages")]
@@ -43,10 +43,6 @@ namespace Assets.Scripts.Data
                     _dataProvider = new TestDataProvider();
                     break;
 
-                case DataProviderType.Fmk:
-                    _dataProvider = new FmkDataProvider();
-                    break;
-
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -54,9 +50,6 @@ namespace Assets.Scripts.Data
 
         private IEnumerator CreateObjects()
         {
-            while (MapController.ReferenceTileRect == null)
-                yield return new WaitForSeconds(1f); // HOTFIX Impossible to create objects before MapController didn't create the first map tile.
-
             var random = new System.Random();
 
             _moveableObjects = _dataProvider.LoadMoveableObjects();
@@ -82,6 +75,8 @@ namespace Assets.Scripts.Data
             Debug.Log("Objects loaded.");
 
             StartCoroutine(UpdateObjects());
+
+            yield return null;
         }
 
         private IEnumerator UpdateObjects()

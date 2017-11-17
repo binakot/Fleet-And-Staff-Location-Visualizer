@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Data.Interfaces;
+using Assets.Scripts.Helpers;
 using Mapbox.Geocoding;
 using Mapbox.Unity;
-using Mapbox.Unity.MeshGeneration;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using UnityEngine;
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Data.Model.Objects
             Longitude = lng;
             Course = course;
 
-            transform.MoveToGeocoordinate(Latitude, Longitude, MapController.ReferenceTileRect.Center, MapController.WorldScaleFactor);
+            transform.MoveToGeocoordinate(Latitude, Longitude, SceneManager.Instance.Map.CenterMercator, SceneManager.Instance.Map.WorldRelativeScale);
             transform.Rotate(Vector3.up, Course);
 
             UpdateNearestAddress();

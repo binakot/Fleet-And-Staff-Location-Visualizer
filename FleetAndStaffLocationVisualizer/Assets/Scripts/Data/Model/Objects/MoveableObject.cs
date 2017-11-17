@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Data.Interfaces;
-using Mapbox.Unity.MeshGeneration;
 using Mapbox.Unity.Utilities;
 using System.Collections;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 
 namespace Assets.Scripts.Data.Model.Objects
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Data.Model.Objects
 
         private IEnumerator MoveToTargetPoint()
         {
-            TargetWayPoint.transform.MoveToGeocoordinate(Latitude, Longitude, MapController.ReferenceTileRect.Center, MapController.WorldScaleFactor);
+            TargetWayPoint.transform.MoveToGeocoordinate(Latitude, Longitude, SceneManager.Instance.Map.CenterMercator, SceneManager.Instance.Map.WorldRelativeScale);
 
             var from = transform.position;
             var to = TargetWayPoint.transform.position;
