@@ -30,7 +30,9 @@ namespace Mapbox.IO.Compression
         short[]      right;
         byte[]       codeLengthArray;
 #if DEBUG
+#pragma warning disable 0414
         uint[]       codeArrayDebug;
+#pragma warning restore 0414
 #endif
 
         int tableMask;         
