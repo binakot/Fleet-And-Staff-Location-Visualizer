@@ -17,6 +17,9 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
+*.DotSettings
+
+/.vs/
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -31,7 +34,8 @@ sysinfo.txt
 # Mapbox Unity SDK
 
 ## API access token
-/Assets/StreamingAssets/*
+/Assets/Resources/Mapbox/*
+/Assets/Resources/Mapbox.meta
 !/Assets/StreamingAssets/README.md
 !/Assets/StreamingAssets/README.md.meta
 
@@ -42,9 +46,3 @@ sysinfo.txt
 /Assets/Mapbox/Prefabs.meta
 /Assets/Mapbox/Resources/*
 /Assets/Mapbox/Resources.meta
-
-## FMK Confidential Data Protocol
-/Assets/Scripts/Data/Providers/Fmk/*
-/Assets/Scripts/Data/Providers/Fmk.meta
-/Assets/Resources/Storages/FMK.asset
-/Assets/Resources/Storages/FMK.asset.meta

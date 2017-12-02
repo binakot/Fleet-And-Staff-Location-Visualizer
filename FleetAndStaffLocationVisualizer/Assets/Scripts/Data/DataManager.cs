@@ -4,7 +4,6 @@ using Assets.Scripts.Data.Providers;
 using Assets.Scripts.Storages;
 using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
-using Mapbox.Unity.MeshGeneration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +14,9 @@ namespace Assets.Scripts.Data
     public sealed class DataManager : Singleton<DataManager>
     {
         [Header("Common")]
-        public float DataUpdateFrequency = (float)TimeSpan.FromMinutes(1).TotalSeconds;
-        public enum DataProviderType { Test, Fmk }
+        public float FirstDataUpdateDelay = 5f;
+        public float DataUpdateFrequency = (float) TimeSpan.FromMinutes(1).TotalSeconds;
+        public enum DataProviderType { Test }
         public DataProviderType DataProvider = DataProviderType.Test;
 
         [Header("Storages")]
@@ -43,10 +43,6 @@ namespace Assets.Scripts.Data
                     _dataProvider = new TestDataProvider();
                     break;
 
-                case DataProviderType.Fmk:
-                    _dataProvider = new FmkDataProvider();
-                    break;
-
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -54,9 +50,6 @@ namespace Assets.Scripts.Data
 
         private IEnumerator CreateObjects()
         {
-            while (MapController.ReferenceTileRect == null)
-                yield return new WaitForSeconds(1f); // HOTFIX Impossible to create objects before MapController didn't create the first map tile.
-
             var random = new System.Random();
 
             _moveableObjects = _dataProvider.LoadMoveableObjects();
@@ -82,11 +75,13 @@ namespace Assets.Scripts.Data
             Debug.Log("Objects loaded.");
 
             StartCoroutine(UpdateObjects());
+
+            yield return null;
         }
 
         private IEnumerator UpdateObjects()
         {
-            yield return new WaitForSeconds(DataUpdateFrequency); // Pause before first update.
+            yield return new WaitForSeconds(FirstDataUpdateDelay); // Pause before first update.
 
             while (true)
             {
@@ -106,7 +101,7 @@ namespace Assets.Scripts.Data
                 }
                 Debug.Log("Locations updated.");
 
-                yield return new WaitForSeconds(DataUpdateFrequency);
+                yield return new WaitForSeconds(DataUpdateFrequency); // Period between every update.
             }
         }
     }

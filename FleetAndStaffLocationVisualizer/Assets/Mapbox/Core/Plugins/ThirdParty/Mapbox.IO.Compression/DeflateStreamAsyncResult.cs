@@ -12,7 +12,9 @@ namespace Mapbox.IO.Compression {
         public bool isWrite;
 #pragma warning restore 0414
 
+#pragma warning disable 0414
         private object m_AsyncObject;               // Caller's async object.
+#pragma warning restore 0414
         private object m_AsyncState;                // Caller's state object.
         private AsyncCallback m_AsyncCallback;      // Caller's callback method.
 

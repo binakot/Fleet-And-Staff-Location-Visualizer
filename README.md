@@ -8,10 +8,6 @@ Powered by Unity + Mapbox SDK.
 
 * [Mapbox Unity SDK album on Flickr](https://flic.kr/s/aHskPHLmgP)
 
-## Main Features :heavy_check_mark:
-
-_Coming soon._
-
 ## Examples :eyes:
 
 ![](docs/realistic.gif)
@@ -20,8 +16,8 @@ _Coming soon._
 
 ## Built With :wrench:
 
-* [Unity 5.6.0f3 Personal](https://unity3d.com) - Cross-platform game engine.
-* [Mapbox Unity SDK 0.5.1-beta](https://www.mapbox.com/unity) - The Mapbox Unity SDK is a C#-based wrapper for Mapbox's location APIs.
+* [Unity 2017 Personal](https://unity3d.com) - Cross-platform game engine.
+* [Mapbox Unity SDK 1.2.0](https://www.mapbox.com/unity) - The Mapbox Unity SDK is a C#-based wrapper for Mapbox's location APIs.
 
 ## License :page_facing_up:
 
