@@ -4,7 +4,6 @@ using Assets.Scripts.Data.Providers;
 using Assets.Scripts.Storages;
 using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
-using Mapbox.Unity.MeshGeneration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +14,8 @@ namespace Assets.Scripts.Data
     public sealed class DataManager : Singleton<DataManager>
     {
         [Header("Common")]
-        public float DataUpdateFrequency = (float)TimeSpan.FromMinutes(1).TotalSeconds;
+        public float FirstDataUpdateDelay = 5f;
+        public float DataUpdateFrequency = (float) TimeSpan.FromMinutes(1).TotalSeconds;
         public enum DataProviderType { Test }
         public DataProviderType DataProvider = DataProviderType.Test;
 
@@ -81,7 +81,7 @@ namespace Assets.Scripts.Data
 
         private IEnumerator UpdateObjects()
         {
-            yield return new WaitForSeconds(DataUpdateFrequency); // Pause before first update.
+            yield return new WaitForSeconds(FirstDataUpdateDelay); // Pause before first update.
 
             while (true)
             {
@@ -101,7 +101,7 @@ namespace Assets.Scripts.Data
                 }
                 Debug.Log("Locations updated.");
 
-                yield return new WaitForSeconds(DataUpdateFrequency);
+                yield return new WaitForSeconds(DataUpdateFrequency); // Period between every update.
             }
         }
     }
